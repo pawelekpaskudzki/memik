@@ -17,15 +17,24 @@ const memesSlice = createSlice({
       const meme = state.find((p) => p.id === action.payload);
       if (meme) meme.downvotes += 1;
     },
-  },
+    addMeme: (state, action) => {
+      const newMeme = {
+        id: state.length + 1,
+        url: action.payload.url,
+        upvotes: 0,
+        downvotes: 0,
+      };
+      state.push(newMeme);
+    }
+  }
 });
 
-export const { upvote, downvote } = memesSlice.actions;
+export const { upvote, downvote, addMeme  } = memesSlice.actions;
 
 const store = configureStore({
   reducer: {
     memes: memesSlice.reducer,
-  },
+  }
 });
 
 export default store;
