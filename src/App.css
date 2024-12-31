@@ -43,3 +43,50 @@
   margin-top: '20px' ;
 
 }
+
+/* Główna struktura */
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Lewy panel (nawigacja) */
+.side-nav {
+  width: 20%; /* Lewa kolumna zajmuje 20% szerokości */
+  background-color: black;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid white;
+}
+
+.side-nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.side-nav li {
+  margin: 15px 0;
+}
+
+.side-nav a {
+  text-decoration: none;
+  color: whitesmoke;
+  font-weight: bold;
+}
+
+.side-nav a:hover {
+  color: #007bff;
+}
+
+/* Prawy panel (treść) */
+.main-content {
+  flex: 1; /* Reszta przestrzeni */
+  padding: 20px;
+  overflow-y: auto; /* Dodaj scroll, jeśli treść jest za duża */
+  background-color: black;
+  color: whitesmoke;
+}
+
+.main-content h1 {
+  color: whitesmoke;
+}

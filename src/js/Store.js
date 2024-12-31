@@ -12,10 +12,14 @@ const memesSlice = createSlice({
     upvote: (state, action) => {
       const meme = state.find((p) => p.id === action.payload);
       if (meme) meme.upvotes += 1;
+      playSoundThumbUp();
     },
     downvote: (state, action) => {
       const meme = state.find((p) => p.id === action.payload);
       if (meme) meme.downvotes += 1;
+      playSoundThumbDown();
+
+   
     },
     addMeme: (state, action) => {
       const newMeme = {
@@ -28,6 +32,16 @@ const memesSlice = createSlice({
     }
   }
 });
+
+const playSoundThumbUp = () => {
+  const audio = new Audio('/sounds/hahaha.mp3');
+  audio.play();
+};
+
+const playSoundThumbDown = () => {
+  const audio = new Audio('/sounds/boo.mp3');
+  audio.play();
+};
 
 export const { upvote, downvote, addMeme  } = memesSlice.actions;
 
