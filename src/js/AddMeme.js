@@ -8,6 +8,7 @@ function AddMeme() {
 
   return (
     <div className='default-container'>
+      <h1>Dodaj mema</h1>
       <UploadMeme />
       <UploadMemeFile />
     </div>
