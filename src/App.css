@@ -48,6 +48,13 @@
 .app-container {
   display: flex;
   height: 100vh;
+  flex-direction: column;
+}
+
+.content-container {
+  display: flex; /* Ustawia układ poziomy dla dzieci (side-nav i main-content) */
+  flex: 1; /* Zajmuje całą dostępną przestrzeń pod banerem */
+  overflow: hidden; /* Zapobiega przewijaniu wewnętrznych elementów */
 }
 
 /* Lewy panel (nawigacja) */
@@ -89,4 +96,44 @@
 
 .main-content h1 {
   color: whitesmoke;
+}
+
+/* Baner */
+.banner {
+  position: relative;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+  overflow: hidden;
+}
+
+#banner-text {
+  font-size: 3rem;
+  color: white;
+  position: absolute;
+  right: -300px; /* Startuje poza ekranem */
+  animation: slideIn 2s ease-out forwards, shimmer 2s 0.5s ease-out;
+}
+
+/* Animacja pojawienia się z prawej strony */
+@keyframes slideIn {
+  to {
+    right: 50%; /* Umieszczony na środku */
+    transform: translateX(50%);
+  }
+}
+
+/* Efekt błyszczenia */
+@keyframes shimmer {
+  0% {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px silver, 0 0 60px silver;
+  }
+  50% {
+    text-shadow: 0 0 10px #fff, 0 0 20px silver, 0 0 30px silver, 0 0 50px white, 0 0 80px white;
+  }
+  100% {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px silver, 0 0 60px silver;
+  }
 }
