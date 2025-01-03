@@ -1,8 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 import AddMeme from './js/AddMeme';
-import AllMemes from './js/AllMemes';
-import BestMemes from './js/BestMemes';
+import MemePage from './js/MemePage';
 import Default from './js/Default';
 import './App.css';
 
@@ -21,10 +20,10 @@ function App() {
         <div className="content-container">
           <nav className="side-nav">
             <ul>
-              <li><Link to="/">Strona Główna</Link></li>
-              <li><Link to="/all">Wszystkie Memy</Link></li>
-              <li><Link to="/best">Najlepsze Memy</Link></li>
-              <li><Link to="/add">Dodaj</Link></li>
+              <li><NavLink to="/" className={({ isActive }) => (isActive ? 'current' : 'unselected')}>Strona Główna</NavLink></li>
+              <li><NavLink to="/all" className={({ isActive }) => (isActive ? 'current' : 'unselected')}>Wszystkie Memy</NavLink></li>
+              <li><NavLink to="/best" className={({ isActive }) => (isActive ? 'current' : 'unselected')}>Najlepsze Memy</NavLink></li>
+              <li><NavLink to="/add" className={({ isActive }) => (isActive ? 'current' : 'unselected')}>Dodaj</NavLink></li>
             </ul>
           </nav>
 
@@ -32,8 +31,8 @@ function App() {
           <main className="main-content">
             <Routes>
               <Route path="/" element={<Default />} />
-              <Route path="/all" element={<AllMemes />} />
-              <Route path="/best" element={<BestMemes />} />
+              <Route path="/all" element={<MemePage pageType = 'all'/>} />
+              <Route path="/best" element={<MemePage  pageType = 'hot'/>} />
               <Route path="/add" element={<AddMeme />} />
             </Routes>
           </main>

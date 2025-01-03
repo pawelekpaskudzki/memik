@@ -1,0 +1,40 @@
+.meme-container {
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .meme-image {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .vote-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .vote-item {
+    margin: 0 10px;
+    text-align: center;
+  }
+  
+  .icon {
+    cursor: pointer;
+    font-size: 24px;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .icon:hover {
+    transform: scale(1.2);
+  }
+  
+  .upvote {
+    color: green;
+  }
+  
+  .downvote {
+    color: red;
+  }

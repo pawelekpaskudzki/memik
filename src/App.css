@@ -77,8 +77,6 @@
 
 .side-nav a {
   text-decoration: none;
-  color: whitesmoke;
-  font-weight: bold;
 }
 
 .side-nav a:hover {
@@ -115,6 +113,16 @@
   position: absolute;
   right: -300px; /* Startuje poza ekranem */
   animation: slideIn 2s ease-out forwards, shimmer 2s 0.5s ease-out;
+}
+
+.current {
+  font-weight: bold;
+  font-size: larger;
+  color: #007bff;
+}
+
+.unselected {
+  color: whitesmoke;
 }
 
 /* Animacja pojawienia się z prawej strony */

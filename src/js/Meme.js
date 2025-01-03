@@ -2,28 +2,35 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { upvote, downvote } from './Store';
 import { FaThumbsUp, FaThumbsDown } from 'react-icons/fa';
+import './../css/meme.css';
 
 function Meme({ meme }) {
   const dispatch = useDispatch();
 
+  if (!meme || !meme.url || !meme.id) {
+    return <div>Invalid meme data</div>;
+  }
+
   return (
-    <div style={{  margin: '10px', padding: '10px', textAlign: 'center' }}>
-      <img src={meme.url} alt={`Meme ${meme.id}`} style={{ maxWidth: '100%', height: 'auto' }} />
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '10px' }}>
-        {/* Ikonka kciuka w górę z licznikiem */}
-        <div style={{ margin: '0 10px', textAlign: 'center' }}>
-          <FaThumbsUp 
+    <div className="meme-container">
+      <img
+        src={meme.url}
+        alt={`Meme ${meme.id}`}
+        className="meme-image"
+        loading="lazy"
+      />
+      <div className="vote-container">
+        <div className="vote-item">
+          <FaThumbsUp
             onClick={() => dispatch(upvote(meme.id))}
-            style={{color:'green', cursor: 'pointer', fontSize: '24px' }} 
+            className="icon upvote"
           />
           <p>{meme.upvotes}</p>
         </div>
-
-        {/* Ikonka kciuka w dół z licznikiem */}
-        <div style={{ margin: '0 10px', textAlign: 'center' }}>
-          <FaThumbsDown 
+        <div className="vote-item">
+          <FaThumbsDown
             onClick={() => dispatch(downvote(meme.id))}
-            style={{ color:'red', cursor: 'pointer', fontSize: '24px'}} 
+            className="icon downvote"
           />
           <p>{meme.downvotes}</p>
         </div>
