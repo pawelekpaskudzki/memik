@@ -34,12 +34,12 @@ const memesSlice = createSlice({
 });
 
 const playSoundThumbUp = () => {
-  const audio = new Audio('/sounds/hahaha.mp3');
+  const audio = new Audio('/img/hahaha.mp3');
   audio.play();
 };
 
 const playSoundThumbDown = () => {
-  const audio = new Audio('/sounds/boo.mp3');
+  const audio = new Audio('/img/boo.mp3');
   audio.play();
 };
 
