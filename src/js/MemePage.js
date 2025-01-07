@@ -4,16 +4,16 @@ import Meme from './Meme';
 import './../css/default.css';
 
 
-function MemePage({pageType}) {
-  
+function MemePage({ pageType }) {
+
   const allMemes = useSelector((state) => state.memes);
 
   const hotMemes = useSelector((state) =>
-  state.memes.filter((p) => p.upvotes - p.downvotes >= 5)
-);
+    state.memes.filter((p) => p.upvotes - p.downvotes >= 5)
+  );
 
-let memes = pageType === 'hot' ? hotMemes : allMemes;
-let pageTile = pageType === 'hot' ? 'Najlepsze memy' : 'Wszystkie memy';
+  let memes = pageType === 'hot' ? hotMemes : allMemes;
+  let pageTile = pageType === 'hot' ? 'Najlepsze memy' : 'Wszystkie memy';
 
   return (
     <div className='default-container'>

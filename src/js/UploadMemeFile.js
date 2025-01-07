@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addMeme } from './Store';
+import './../css/meme.css';
+
 
 function UploadMemeFile() {
   const [file, setFile] = useState(null);
@@ -25,17 +27,17 @@ function UploadMemeFile() {
   };
 
   return (
-    <div style={{ margin: '20px', textAlign: 'center' }}>
+    <div className="meme-upload">
       <form onSubmit={handleSubmit}>
         <input
           type="file"
-          accept="image/*" 
+          accept="image/*"
           onChange={(e) => setFile(e.target.files[0])}
-          style={{ padding: '10px', width: '300px' }}
+          className="input-upload"
         />
         <button
           type="submit"
-          style={{ marginLeft: '10px', padding: '10px 20px' }}
+          className="submit-upload"
         >
           Dodaj
         </button>
