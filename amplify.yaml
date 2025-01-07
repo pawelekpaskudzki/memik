@@ -1,8 +1,10 @@
 frontend:
   phases:
+    preBuild:
+      commands:
+        - npm ci
     build:
       commands:
-        - npm install
         - npm run build
   artifacts:
     baseDirectory: build
@@ -11,18 +13,3 @@ frontend:
   cache:
     paths:
       - node_modules/**/*
-  customHeaders:
-    - pattern: "**/*"
-      headers:
-        - key: X-Content-Type-Options
-          value: nosniff
-    - pattern: "**/*.mp3"
-      headers:
-        - key: Content-Type
-          value: audio/mpeg
-        - key: Cache-Control
-          value: no-cache, no-store, must-revalidate
-        - key: Access-Control-Allow-Origin
-          value: "*"
-        - key: Accept-Ranges
-          value: none
