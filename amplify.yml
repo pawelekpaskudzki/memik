@@ -1,0 +1,19 @@
+frontend:
+  phases:
+    build:
+      commands:
+        - npm install
+        - npm run build
+  artifacts:
+    baseDirectory: build
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+
+  customHeaders:
+    - pattern: "**/*"
+      headers:
+        - key: X-Content-Type-Options
+          value: nosniff
