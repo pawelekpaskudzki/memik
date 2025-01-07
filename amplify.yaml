@@ -11,7 +11,6 @@ frontend:
   cache:
     paths:
       - node_modules/**/*
-
   customHeaders:
     - pattern: "**/*"
       headers:
@@ -23,3 +22,7 @@ frontend:
           value: audio/mpeg
         - key: Cache-Control
           value: no-cache, no-store, must-revalidate
+        - key: Access-Control-Allow-Origin
+          value: "*"
+        - key: Accept-Ranges
+          value: none
